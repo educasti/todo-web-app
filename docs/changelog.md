@@ -9,6 +9,39 @@ fixes y adiciones chicas.
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-09-16
+
+### Agregado
+
+- **Fase 0 del plan completada.** Se creó `app/`: la primera aplicación ejecutable del repo,
+  con Next.js 16.3.5 (App Router, React 19, TypeScript, Tailwind v4, `src/` y alias `@/*`).
+- Backend Convex instalado (`convex@1.46.0`, `@convex-dev/auth@0.0.95`, `@auth/core`), con
+  `app/convex/schema.ts` mínimo y `_generated/` generado en modo local anónimo
+  (`CONVEX_AGENT_MODE=anonymous`).
+- shadcn/ui inicializado con estilo `base-nova` y base `neutral` (`app/components.json`), más los
+  componentes `button`, `input`, `textarea`, `card`, `checkbox`, `label`, `dialog`, `avatar` y
+  `sonner` en `app/src/components/ui/`.
+- Dependencias de UI/tema: `next-themes`, `clsx`, `tailwind-merge` y `lucide-react`.
+- Tests unitarios con Vitest + Testing Library + jsdom (`app/vitest.config.ts`,
+  `app/src/test/setup.ts`), con smoke test de `cn()` en `app/src/lib/utils.test.ts`.
+- E2E con Playwright + Chromium (`app/playwright.config.ts` con `webServer` sobre `npm run dev` y
+  `app/tests/smoke.spec.ts`), más los scripts `test`, `test:watch` y `test:e2e` en
+  `app/package.json`.
+- `app/.env.local` a partir de `.env.example` (ignorado por git).
+- Subagentes de proyecto `.opencode/agents/convex-dev.md` y `.opencode/agents/nextjs-ui-dev.md`.
+- `.gitignore`: se ignoran `playwright-report/`, `test-results/` y `blob-report/`.
+
+### Cambiado
+
+- `app/src/lib/utils.ts` reexporta `cn` desde el paquete `cn` (drop-in de `clsx` +
+  `tailwind-merge`) que trae el preset `base-nova` de shadcn 4.x; los componentes de `ui/` lo
+  consumen directo. Queda como desvío a revisar contra `ARCHITECTURE_TEMPLATE.md`.
+- `app/next.config.ts` fija `turbopack.root` en `app/` para evitar el warning por lockfiles
+  duplicados (raíz + app).
+- `.env.example` no es usable tal cual para el modo local anónimo: su `CONVEX_DEPLOYMENT`
+  (`local:local-...`) hace que el CLI pida login; hay que quitar esa línea y dejar que Convex la
+  complete con `anonymous:anonymous-agent`.
+
 ## [0.2.0] - 2026-09-16
 
 ### Agregado

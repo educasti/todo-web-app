@@ -4,11 +4,10 @@ Actualizado: 2026-09-16
 
 ## Resumen
 
-El repo es una **plantilla** (Next.js + Convex): no hay aplicación ejecutable todavía. El primer
-proyecto —una web app de gestión de tareas para equipos chicos— está **decidido y planificado**,
-pero no implementado.
+El repo tiene su primera aplicación ejecutable: `app/` (Next.js 16 + Convex) con el andamiaje de la
+**Fase 0** completo y verificado. Todavía no hay auth ni tareas — eso son las Fases 1 y 2.
 
-**Fase actual:** plantilla completa + MVP planificado. Próximo paso: Fase 0 (bootstrap de `app/`).
+**Fase actual:** Fase 0 completada. Próximo paso: Fase 1 (identidad base: registro, login, logout).
 
 ## DONE
 
@@ -21,12 +20,15 @@ pero no implementado.
 - [x] Decisión de alcance del MVP (nota en `cooked-ideas/`).
 - [x] Plan de implementación por fases (`IMPLEMENTATION_PLAN.md`).
 - [x] `docs/` Markdown (`changelog.md`, `architecture.md`, `project_status.md`).
+- [x] ~~**Fase 0** — Bootstrap: `app/` con Next.js + Convex + shadcn + Vitest + Playwright~~
+  (2026-09-16).
+- [x] ~~Configurar la suite E2E de Playwright~~ (2026-09-16: config + smoke test en `app/`).
+- [x] ~~Subagentes de proyecto `convex-dev` y `nextjs-ui-dev`~~ (2026-09-16).
 
 ## TODO
 
 ### MVP de gestión de tareas — por fase
 
-- [ ] **Fase 0** — Bootstrap: `app/` con Next.js + Convex + shadcn + Vitest + Playwright.
 - [ ] **Fase 1** — Identidad base: registro, login, logout y ruta protegida.
 - [ ] **Fase 2** — CRUD de tareas en lista compartida en tiempo real (**hito usable**).
 - [ ] **Fase 3** — Equipo y colaboración: invitaciones por código y asignación.
@@ -36,7 +38,6 @@ pero no implementado.
 
 ### Infraestructura y decisiones
 
-- [ ] Configurar la suite E2E de Playwright (hoy solo existe el subagente).
 - [ ] Definir proveedor de email transaccional — **bloquea Fase 4**.
 - [ ] Decidir deploy (Vercel + Convex cloud vs local) — **bloquea Fase 6**.
 - [ ] Confirmar multi-equipo (hoy asumido: un solo equipo por instancia).
@@ -50,4 +51,4 @@ pero no implementado.
 | Documentación base | Completo |
 | Decisiones de producto (MVP) | Completo |
 | Plan de implementación | Completo |
-| Código de la app (`app/`) | No comenzado |
+| Código de la app (`app/`) | Fase 0 completa (1 de 7 fases) — Fase 1 pendiente |
