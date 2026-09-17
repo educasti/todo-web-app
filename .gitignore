@@ -20,6 +20,9 @@ app/convex/_generated/
 
 # tests
 coverage/
+playwright-report/
+test-results/
+blob-report/
 
 # logs
 *.log

@@ -22,7 +22,7 @@
 ## Checklist
 
 - [ ] `npm test` pasa
-- [ ] `npm run lint` y `npx tsc --noEmit` sin errores
+- [ ] `npm run lint` y `npm run typecheck` sin errores
 - [ ] `npm run build` compila
 - [ ] No se commitean secretos ni `.env*`
 - [ ] Docs actualizadas (`/update-docs-and-commit` o edición manual de `docs/`)
