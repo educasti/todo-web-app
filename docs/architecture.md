@@ -16,7 +16,9 @@ esquema de datos del MVP sigue siendo **borrador** hasta cerrarse en la Fase 2.
 - **Backend/DB**: Convex 1.46.0 (base reactiva + funciones serverless en TypeScript) en modo local
   anónimo (`CONVEX_AGENT_MODE=anonymous`)
 - **Auth**: `@convex-dev/auth` 0.0.95 con provider `Password` (se cablea en Fase 1)
-- **Estilos**: Tailwind CSS v4 + shadcn/ui (`base-nova`, base `neutral`), `lucide-react`
+- **Estilos**: Tailwind CSS v4 + shadcn/ui (`base-nova`, base `neutral`), `lucide-react`.
+  `shadcn` queda en `dependencies` (no en `devDependencies`) porque `src/app/globals.css`
+  hace `@import "shadcn/tailwind.css"`: se resuelve en el build de estilos.
 - **Tema**: `next-themes`
 - **Utils**: `cn` (paquete `cn`, drop-in de `clsx` + `tailwind-merge`) reexportado en
   `src/lib/utils.ts`
@@ -167,7 +169,7 @@ export default defineSchema({
   (**Fase 1**).
 - **`cn()`**: `src/lib/utils.ts` re-exporta `cn` del paquete `cn` (el drop-in de `clsx` +
   `tailwind-merge` que instala el preset `base-nova` de shadcn 4.x). Los componentes de `ui/`
-  importan `cn` desde `"cn"` directo.
+  lo importan desde `@/lib/utils`.
 
 ### Tests
 

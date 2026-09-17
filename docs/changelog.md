@@ -21,7 +21,7 @@ fixes y adiciones chicas.
 - shadcn/ui inicializado con estilo `base-nova` y base `neutral` (`app/components.json`), más los
   componentes `button`, `input`, `textarea`, `card`, `checkbox`, `label`, `dialog`, `avatar` y
   `sonner` en `app/src/components/ui/`.
-- Dependencias de UI/tema: `next-themes`, `clsx`, `tailwind-merge` y `lucide-react`.
+- Dependencias de UI/tema: `next-themes` y `lucide-react`.
 - Tests unitarios con Vitest + Testing Library + jsdom (`app/vitest.config.ts`,
   `app/src/test/setup.ts`), con smoke test de `cn()` en `app/src/lib/utils.test.ts`.
 - E2E con Playwright + Chromium (`app/playwright.config.ts` con `webServer` sobre `npm run dev` y
@@ -41,6 +41,21 @@ fixes y adiciones chicas.
 - `.env.example` no es usable tal cual para el modo local anónimo: su `CONVEX_DEPLOYMENT`
   (`local:local-...`) hace que el CLI pida login; hay que quitar esa línea y dejar que Convex la
   complete con `anonymous:anonymous-agent`.
+
+### Corregido
+
+- Revisión del PR de Fase 0: se agregó el script `typecheck` (`next typegen && tsc --noEmit`)
+  para que el chequeo de tipos funcione en un clon limpio (los tipos de rutas de Next 16 son
+  generados); la plantilla de PR ahora pide `npm run typecheck`.
+- Vitest extiende los `exclude` por defecto (`configDefaults.exclude`) en vez de pisarlos.
+- Se dieron de baja las dependencias muertas `clsx` y `tailwind-merge` (nadie las importaba;
+  el paquete `cn` trae su propio engine).
+- ESLint ignora `convex/_generated/**` (código generado) y queda sin warnings por ese motivo.
+- `cn` unificado: los componentes de `ui/` lo importan desde `@/lib/utils`.
+- Setup de tests importa `@testing-library/jest-dom/vitest` (matchers tipados).
+- Playwright usa `reuseExistingServer: !process.env.CI`.
+- Metadata en español (`title: "Tareas"`, descripción de la app) y `lang="es"`.
+- `app/README.md` propio del proyecto (cómo correr, verificación y Convex local anónimo).
 
 ## [0.2.0] - 2026-09-16
 
